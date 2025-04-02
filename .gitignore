@@ -1,0 +1,11 @@
+# Ignore images folder
+images/
+
+# Common system files
+.DS_Store
+Thumbs.db
+
+# IDE/Editor folders
+.vscode/
+.idea/
+*.sublime-*
