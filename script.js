@@ -685,4 +685,58 @@ document.addEventListener("DOMContentLoaded", function () {
   updateGoogleFormURL(
     "https://docs.google.com/forms/d/e/1FAIpQLScF0I0NY01GDO5hsmPtgJSDbTLphX4P5FCtCC-wzrpvf5M4Yg/viewform?embedded=true"
   );
+
+  // Image loading handling
+  function handleImageLoading() {
+    const images = document.querySelectorAll("img");
+    images.forEach((img) => {
+      img.classList.add("loading");
+      img.onload = () => img.classList.remove("loading");
+      img.onerror = () => {
+        img.classList.remove("loading");
+        img.src = "Logos/AIESEC/Black-Logo.png"; // Fallback image
+      };
+    });
+  }
+
+  // Handle iframe loading
+  function handleIframeLoading() {
+    const iframes = document.querySelectorAll("iframe");
+    iframes.forEach((iframe) => {
+      iframe.classList.add("loading");
+      iframe.onload = () => iframe.classList.remove("loading");
+    });
+  }
+
+  // Handle tab switching with keyboard
+  function handleTabKeyboardNavigation() {
+    const tabBtns = document.querySelectorAll(".tab-btn");
+    tabBtns.forEach((btn) => {
+      btn.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          btn.click();
+        }
+      });
+    });
+  }
+
+  // Initialize all event handlers
+  handleImageLoading();
+  handleIframeLoading();
+  handleTabKeyboardNavigation();
+
+  // Prevent zoom on double tap on mobile
+  let lastTouchEnd = 0;
+  document.addEventListener(
+    "touchend",
+    (e) => {
+      const now = Date.now();
+      if (now - lastTouchEnd <= 300) {
+        e.preventDefault();
+      }
+      lastTouchEnd = now;
+    },
+    false
+  );
 });
