@@ -37,9 +37,11 @@
             <li><a href="#agenda">Agenda</a></li>
             <li><a href="#nakath">Nakath</a></li>
             <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#games">Games</a></li>
             <li><a href="#oc-team">OC Team</a></li>
             <li><a href="#register">Register</a></li>
           </ul>
+
         </nav>
         <div class="menu-toggle">
           <i class="fas fa-bars"></i>
@@ -344,6 +346,64 @@
       </div>
     </section>
 
+
+    <!-- ===== NEW AVURUDU GAMES SECTION ===== -->
+    <section id="games" class="games">
+        <div class="container">
+            <h2 class="section-title">Avurudu Games!</h2>
+            <div class="games-grid">
+
+                <!-- Game 1: Kana Mutti -->
+                <div class="game-card kana-mutti-game">
+                    <h3><i class="fas fa-certificate"></i> Kana Mutti Bindeema</h3>
+                    <p class="instructions">Click on a pot below to try and find the hidden prize!</p>
+                    <div class="pots-container" id="kana-mutti-pots">
+                         <!-- Ensure you have these images in images/games/ -->
+                        <div class="pot" data-id="1"><img src="images/games/pot.png" alt="Pot 1" loading="lazy"></div>
+                        <div class="pot" data-id="2"><img src="images/games/pot.png" alt="Pot 2" loading="lazy"></div>
+                        <div class="pot" data-id="3"><img src="images/games/pot.png" alt="Pot 3" loading="lazy"></div>
+                         <div class="pot" data-id="4"><img src="images/games/pot.png" alt="Pot 4" loading="lazy"></div>
+                         <div class="pot" data-id="5"><img src="images/games/pot.png" alt="Pot 5" loading="lazy"></div>
+                         <div class="pot" data-id="6"><img src="images/games/pot.png" alt="Pot 6" loading="lazy"></div>
+                    </div>
+                    <p class="game-message" id="kana-mutti-message"></p>
+                    <button class="btn game-reset-btn" id="kana-mutti-reset">Play Again</button>
+                </div>
+
+                <!-- Game 2: Aliyata Eha -->
+                <div class="game-card elephant-game">
+                    <h3><i class="fas fa-eye"></i> Aliyata Eha Thabeema</h3>
+                    <p class="instructions">Click on the elephant where you think the eye should go!</p>
+                    <div class="elephant-area" id="elephant-area">
+                         <!-- Ensure you have these images in images/games/ -->
+                         <img src="images/games/elephant.png" alt="Elephant" class="elephant-bg" loading="lazy">
+                         <img src="images/games/eye.png" alt="Elephant Eye" class="elephant-eye" id="elephant-eye">
+                         <!-- Div to show correct spot -->
+                         <div class="correct-eye-spot" id="correct-eye-spot"></div>
+                    </div>
+                    <button class="btn game-action-btn" id="elephant-check">Check Placement</button>
+                    <p class="game-message" id="elephant-message"></p>
+                    <button class="btn game-reset-btn" id="elephant-reset">Try Again</button>
+                </div>
+
+                <!-- Game 3: Guess Kavum -->
+                 <div class="game-card kavum-game">
+                     <h3><i class="fas fa-question-circle"></i> Guess the Kavum!</h3>
+                     <p class="instructions">How many Kavum are in the virtual basket? (Guess between 1 and 20)</p>
+                     <div class="form-group-game">
+                        <label for="kavum-guess">Your Guess:</label>
+                        <input type="number" id="kavum-guess" name="kavum-guess" min="1" max="20">
+                     </div>
+                     <button class="btn game-action-btn" id="kavum-submit">Make Guess</button>
+                      <p class="game-message" id="kavum-message"></p>
+                      <button class="btn game-reset-btn" id="kavum-reset">New Game</button>
+                 </div>
+
+            </div>
+        </div>
+    </section>
+
+
     <!-- OC Team Section -->
     <section id="oc-team" class="oc-team">
       <div class="container">
@@ -511,34 +571,18 @@
         <div class="container">
             <h2 class="section-title">Register for Avurudu LCM '25</h2>
             <p class="register-desc">
-            Click the button below or scan the QR code to register via the Google Form. Limited spots available!
+            Please register using the embedded Google Form below. Limited spots available!
             </p>
-            <!-- Registration Options -->
-            <div class="register-options">
-                <!-- Option 1: Button Link -->
-                <a href="YOUR_GOOGLE_FORM_LINK_HERE" target="_blank" rel="noopener noreferrer" class="btn register-btn">Register via Google Form</a>
 
-                 <!-- Option 2: QR Code (Generate QR Code image and link it) -->
-                <div class="qr-code-container">
-                    <img src="images/registration_qr_code.png" alt="Registration QR Code" loading="lazy">
-                     <p>Scan QR Code</p>
-                 </div>
-            </div>
-
-            <!-- Embedded Google Form (Alternative/Optional - Can be styled if iframe works) -->
-            <!--
-            <div class="google-form-embed">
-                 <h3 class="embed-title">Or Register Below:</h3>
-                 <div class="registration-iframe-container">
-                    <iframe
-                         id="google-form"
-                         src="YOUR_GOOGLE_FORM_EMBED_LINK_HERE"  <-- Use embed link (ends in /viewform?embedded=true)
-                         frameborder="0"
-                         >Loading…</iframe
-                         >
-                 </div>
-            </div>
-             -->
+             <!-- Embedded Google Form -->
+            <div class="registration-iframe-container">
+                <iframe
+                     id="google-form"
+                     src="https://docs.google.com/forms/d/e/1FAIpQLScF0I0NY01GDO5hsmPtgJSDbTLphX4P5FCtCC-wzrpvf5M4Yg/viewform?usp=header"  <!-- === REPLACE with your form's EMBED URL === -->
+                     frameborder="0"
+                     >Loading…</iframe
+                     >
+             </div>
 
         </div>
     </section>

@@ -83,6 +83,13 @@ section {
   padding: 100px 0; /* Increased padding */
 }
 
+/* Add top padding to the first section to offset fixed header */
+section#home {
+  padding-top: 100px; /* Adjust this value based on your header's actual height + some buffer */
+  min-height: calc(100vh + 30px); /* Recalculate min-height if needed */
+  /* If hero content seems too far down now, reduce this padding-top */
+}
+
 .section-title {
   font-size: 2.8rem; /* Slightly larger title */
   text-align: center;
@@ -194,8 +201,9 @@ nav ul li a.active {
 
 /* Hero Section */
 .hero {
-  height: 100vh; /* Full viewport height */
-  min-height: 700px; /* Minimum height */
+  height: auto; /* Allow height to adjust with padding */
+  /* height: 100vh; /* Replaced with padding approach */
+  /* min-height: 700px; */
   background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
     url("images/hero-bg.jpg") no-repeat center center/cover; /* Ensure bg covers */
   background-attachment: fixed;
@@ -204,7 +212,7 @@ nav ul li a.active {
   justify-content: center; /* Center content vertically */
   text-align: center;
   color: var(--light-color);
-  padding: 100px 0; /* Adjust padding if needed */
+  /* padding: 100px 0; Adjusted using section#home rule now */
 }
 
 .hero-logo {
@@ -412,26 +420,18 @@ nav ul li a.active {
 .timeline-item:nth-child(odd)::after {
   right: -10px; /* Position right of center line */
   transform: translateX(50%);
+  --translateX: 50%; /* Define variable for transform direction */
 }
 
 .timeline-item:nth-child(even)::after {
   left: -10px; /* Position left of center line */
   transform: translateX(-50%);
+  --translateX: -50%; /* Define variable for transform direction */
 }
 
 .timeline-item:hover::after {
   background: var(--secondary-color);
-  transform: scale(1.2) translateX(calc(var(--translateX, -50%))); /* Use CSS variable for direction */
-}
-.timeline-item:nth-child(odd)::after {
-  --translateX: 50%;
-}
-.timeline-item:nth-child(even)::after {
-  --translateX: -50%;
-}
-.timeline-item:hover::after {
-  background: var(--secondary-color);
-  transform: scale(1.2) translateX(var(--translateX)); /* Simpler hover effect */
+  transform: scale(1.2) translateX(var(--translateX)); /* Use variable */
 }
 
 /* Content box */
@@ -996,68 +996,25 @@ nav ul li a.active {
   line-height: 1.8;
 }
 
-/* Registration Options Styling */
-.register-options {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 30px; /* Space between button and QR */
-  margin-top: 20px;
-}
-
-.register-btn {
-  min-width: 250px; /* Ensure button has decent width */
-  text-align: center;
-}
-
-.qr-code-container {
-  text-align: center;
-}
-
-.qr-code-container img {
-  max-width: 200px; /* Control QR code size */
-  height: auto;
-  border: 5px solid var(--light-color);
-  border-radius: var(--border-radius);
-  padding: 5px;
-  background: var(--light-color); /* Ensure contrast */
-  margin-bottom: 10px;
-}
-
-.qr-code-container p {
-  font-weight: 500;
-  color: var(--light-color);
-  opacity: 0.9;
-}
-
-/* Styling for Embedded Google Form (if used) */
-.google-form-embed {
-  margin-top: 50px; /* Space above embed */
-  padding-top: 40px;
-  border-top: 1px solid rgba(255, 255, 255, 0.2); /* Separator line */
-}
-
-.embed-title {
-  text-align: center;
-  font-size: 1.4rem;
-  margin-bottom: 30px;
-  font-weight: 600;
-  color: var(--light-color);
-}
-
+/* Styling for Embedded Google Form */
 .registration-iframe-container {
   max-width: 850px; /* Width of the iframe container */
-  margin: 0 auto;
-  background: rgba(255, 255, 255, 0.98); /* Almost opaque */
-  padding: 5px; /* Small padding around iframe */
+  margin: 40px auto 0 auto; /* Add margin top */
+  background: rgba(
+    255,
+    255,
+    255,
+    0.98
+  ); /* Almost opaque background for container */
+  padding: 15px; /* Padding around iframe */
   border-radius: var(--border-radius);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25); /* Adjust shadow */
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
 }
 
 #google-form {
   display: block; /* Ensure iframe is block */
   width: 100%;
-  height: 650px; /* Adjust height as needed */
+  height: 700px; /* Adjust height as needed */
   border: none;
   border-radius: 8px; /* Optional inner radius */
 }
@@ -1288,6 +1245,9 @@ footer {
   section {
     padding: 80px 0;
   }
+  section#home {
+    padding-top: 80px; /* Example: Adjust if header is shorter on mobile */
+  }
   .section-title {
     font-size: 2.2rem;
     margin-bottom: 50px;
@@ -1409,6 +1369,9 @@ footer {
   section {
     padding: 60px 0;
   }
+  section#home {
+    padding-top: 70px; /* Further adjust for potentially smaller headers */
+  }
   .section-title {
     font-size: 2rem;
     margin-bottom: 40px;
@@ -1501,8 +1464,14 @@ footer {
   .footer-contact-card div {
     text-align: center;
   }
-  .register-options {
-    flex-direction: column; /* Stack button and QR code */
+
+  .registration-iframe-container {
+    /* Ensure iframe container looks okay */
+    padding: 5px;
+  }
+  #google-form {
+    /* Adjust height for small screens if needed */
+    height: 600px;
   }
 }
 
@@ -1534,3 +1503,251 @@ footer {
   color: var(--primary-color);
   font-weight: 500;
 }
+
+/* ==== AVURUDU GAMES SECTION STYLES ==== */
+.games {
+  background-color: var(
+    --light-color
+  ); /* Or var(--background-color) if preferred */
+}
+
+.games-grid {
+  display: grid;
+  /* Adjust column template for responsiveness */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+}
+
+.game-card {
+  background: #fff;
+  border-radius: var(--border-radius);
+  padding: 30px;
+  box-shadow: var(--box-shadow);
+  text-align: center;
+  border: 1px solid #eee;
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column; /* Stack elements vertically */
+  /* justify-content: space-between; /* Let content flow naturally */
+  min-height: 480px; /* Ensure cards have a minimum height */
+  overflow: hidden; /* Hide overflow if needed */
+}
+.game-card > *:not(:last-child) {
+  /* Add space between elements except last */
+  margin-bottom: 15px;
+}
+.game-card > p.instructions {
+  margin-bottom: 25px;
+} /* More space after instructions */
+.game-card > button.game-reset-btn {
+  margin-top: auto; /* Push reset button towards bottom */
+  align-self: center; /* Center reset button */
+  min-width: 150px;
+}
+.game-card > button.game-action-btn {
+  /* Specific button type for primary action */
+  align-self: center;
+  min-width: 180px;
+  margin-top: 10px;
+}
+
+.game-card h3 {
+  color: var(--primary-color);
+  margin-bottom: 15px;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+.game-card h3 i {
+  /* Icon styling */
+  margin-right: 10px;
+  color: var(--secondary-color);
+}
+
+.game-card .instructions {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+.game-message {
+  margin-top: 20px;
+  font-weight: 600;
+  min-height: 2.5em; /* Reserve space for multi-line message */
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.4;
+}
+.game-message.success {
+  color: #198754;
+} /* Bootstrap success green */
+.game-message.failure {
+  color: #dc3545;
+} /* Bootstrap danger red */
+.game-message.info {
+  color: #555;
+}
+
+/* Shared button styles */
+.game-reset-btn,
+.game-action-btn {
+  padding: 10px 25px;
+  font-size: 1rem;
+}
+
+.game-reset-btn {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+  color: var(--dark-color) !important; /* Dark text on yellow */
+}
+.game-reset-btn:hover {
+  background-color: #e6c300; /* Darker gold */
+  border-color: #e6c300;
+  color: var(--dark-color) !important;
+}
+
+/* Kana Mutti Game Specific */
+.pots-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px; /* Reduce gap */
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.pot {
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.3s ease;
+  max-width: 80px; /* Smaller pots */
+  flex-basis: calc(33.33% - 15px); /* Adjust based on gap */
+  max-width: 90px;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pot img {
+  object-fit: contain;
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 5px; /* slight rounding */
+}
+
+.pot:hover {
+  transform: scale(1.1);
+}
+.pot.hidden {
+  /* Can be used if hiding pots instead of changing src */
+  opacity: 0;
+  pointer-events: none;
+}
+/* No need for .broken/.prize classes here if using JS to change src */
+
+/* Aliyata Eha Thabeema Game Specific */
+.elephant-game {
+  min-height: 550px; /* More height for elephant */
+}
+.elephant-area {
+  position: relative;
+  width: 100%;
+  max-width: 400px; /* Constrain size */
+  margin: 15px auto;
+  cursor: crosshair;
+  overflow: hidden; /* Prevent eye going outside */
+  border: 2px dashed var(--primary-color);
+  border-radius: 8px;
+  background-color: #fff; /* Background for contrast */
+}
+
+.elephant-area .elephant-bg {
+  display: block;
+  width: 100%;
+  height: auto;
+  pointer-events: none; /* Allow clicks to pass through to the area */
+  opacity: 0.9; /* Slightly faded bg */
+}
+
+.elephant-eye {
+  position: absolute;
+  width: 25px; /* Adjust eye size */
+  height: auto;
+  transform: translate(-50%, -50%);
+  cursor: default;
+  pointer-events: none;
+  z-index: 10;
+  display: none; /* Hidden initially */
+  background-color: rgba(255, 255, 255, 0.5); /* Optional light bg */
+  border-radius: 50%;
+}
+
+/* Style for the visual marker of the correct spot */
+.correct-eye-spot {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border: 3px solid var(--secondary-color);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+  pointer-events: none;
+  z-index: 5; /* Below placed eye */
+  display: none; /* Hide initially */
+  box-sizing: border-box; /* Include border in size */
+}
+.elephant-game button {
+  display: none;
+} /* Hide all buttons initially */
+
+/* Kavum Guess Game Specific */
+.kavum-game .form-group-game {
+  margin-bottom: 20px;
+  max-width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.kavum-game label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.kavum-game input[type="number"] {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1.2rem; /* Larger font for guess */
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  transition: border-color 0.3s ease;
+  background-color: #f9f9f9;
+  /* Remove spinner arrows (optional) */
+  -moz-appearance: textfield;
+}
+.kavum-game input[type="number"]::-webkit-inner-spin-button,
+.kavum-game input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.kavum-game input[type="number"]:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(228, 32, 47, 0.2);
+  background-color: #fff;
+}
+.kavum-game button {
+  margin-bottom: 5px;
+  margin-top: 5px; /* Add space above */
+}
+.kavum-game #kavum-reset {
+  display: none;
+} /* Hide reset initially */
+
+/* Add visibility transition to reveal animation style in JS if not already there */
+/* In JS add .game-card to the revealElements querySelector */
