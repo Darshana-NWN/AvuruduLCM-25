@@ -1,5 +1,5 @@
-# Ignore images folder
-images/
+# Ignore only gallery images
+images/gallery/
 
 # Common system files
 .DS_Store
