@@ -15,8 +15,9 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
-      crossorigin="anonymous" referrerpolicy="no-referrer"
-    /> <!-- Added Integrity -->
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" href="styles.css" />
     <!-- Favicon -->
     <link
@@ -24,8 +25,11 @@
       type="image/png"
       href="Logos/Avurudu LCM '25/AvuruduLCM_coloured_1.png"
     />
-    <!-- Meta Description (Optional but recommended for SEO) -->
-    <meta name="description" content="Join AIESEC in USJ for Avurudu LCM '25 - A celebration of Sri Lankan New Year with games, food, and culture. View the agenda, gallery, and register now!" />
+    <!-- Meta Description -->
+    <meta
+      name="description"
+      content="Join AIESEC in USJ for Avurudu LCM '25 - A celebration of Sri Lankan New Year with games, food, and culture. View the agenda, gallery, and register now!"
+    />
   </head>
   <body>
     <!-- Header Section -->
@@ -46,11 +50,22 @@
             <li><a href="#register">Register</a></li>
           </ul>
         </nav>
-        <div class="menu-toggle">
+        <button class="menu-toggle" aria-label="Toggle Menu">
           <i class="fas fa-bars"></i>
-        </div>
+        </button>
       </div>
     </header>
+
+    <!-- Facebook SDK - Load Async -->
+    <div id="fb-root"></div>
+    <script
+      async
+      defer
+      crossorigin="anonymous"
+      src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v19.0&appId=YOUR_FACEBOOK_APP_ID"
+      nonce="YOUR_NONCE_VALUE"
+    ></script>
+    <!-- ==== IMPORTANT: Replace YOUR_FACEBOOK_APP_ID and YOUR_NONCE_VALUE if needed for advanced FB features ==== -->
 
     <!-- Hero Section -->
     <section id="home" class="hero">
@@ -60,13 +75,14 @@
             class="hero-logo"
             src="Logos/Avurudu LCM '25/Avurdu_LCM_white.png"
             alt="Avurudu LCM '25 Event Logo"
-            loading="eager" <!-- Load hero logo eagerly -->
+            loading="eager"
           />
           <h1>Avurudu LCM '25</h1>
           <h2>AIESEC in University of Sri Jayewardenepura</h2>
           <p>
-            Join us for a celebration of Sri Lankan New Year with traditional
-            games, food, and cultural activities!
+            Embrace the spirit of Sinhala & Tamil New Year with AIESEC in USJ!
+            Join us for a vibrant day filled with traditional games, delicious
+            food, cultural activities, and unforgettable memories.
           </p>
 
           <div class="countdown-wrapper">
@@ -75,7 +91,7 @@
                 <h3>Event Countdown</h3>
               </div>
               <div id="event-countdown" class="countdown">
-                <!-- Countdown will be inserted here by JavaScript -->
+                <!-- Countdown JS -->
               </div>
             </div>
 
@@ -84,12 +100,12 @@
                 <h3>Avurudu Countdown</h3>
               </div>
               <div id="avurudu-countdown" class="countdown">
-                <!-- Countdown will be inserted here by JavaScript -->
+                <!-- Countdown JS -->
               </div>
             </div>
           </div>
 
-          <a href="#register" class="btn">Register Now</a>
+          <a href="#register" class="btn hero-btn">Register Now</a>
         </div>
       </div>
     </section>
@@ -99,54 +115,116 @@
       <div class="container">
         <h2 class="section-title">Event Day Agenda</h2>
         <div class="timeline">
-          <!-- Timeline Items -->
+          <!-- Timeline Items with Icons -->
           <div class="timeline-item">
-            <div class="time"><i class="fas fa-sign-in-alt icon"></i> 9:00 AM</div>
-            <div class="event"><h3>Arrival & Registration</h3><p>Welcome registration of participants</p></div>
-          </div>
-          <div class="timeline-item">
-            <div class="time"><i class="fas fa-landmark icon"></i> 9:30 - 10:00 AM</div>
-            <div class="event"><h3>Opening Ceremony</h3><p>Traditional Kiri ithirima & Polthel pahana ceremony</p></div>
-          </div>
-           <div class="timeline-item">
-            <div class="time"><i class="fas fa-microphone icon"></i> 10:00 - 10:20 AM</div>
-            <div class="event"><h3>Welcome Speech</h3><p>Welcome address by LCP - Savindu</p></div>
+            <div class="time">
+              <i class="fas fa-sign-in-alt icon"></i> 9:00 AM
+            </div>
+            <div class="event">
+              <h3>Arrival & Registration</h3>
+              <p>Welcome registration of participants.</p>
+            </div>
           </div>
           <div class="timeline-item">
-            <div class="time"><i class="fas fa-award icon"></i> 10:20 - 10:30 AM</div>
-            <div class="event"><h3>Appreciation Ceremony</h3><p>Recognition of Members of the Month</p></div>
+            <div class="time">
+              <i class="fas fa-landmark icon"></i> 9:30 - 10:00 AM
+            </div>
+            <div class="event">
+              <h3>Opening Ceremony</h3>
+              <p>Traditional Kiri Ithirima & Oil Lamp Lighting.</p>
+            </div>
           </div>
           <div class="timeline-item">
-            <div class="time"><i class="fas fa-music icon"></i> 10:30 - 10:45 AM</div>
-            <div class="event"><h3>Jives</h3><p>Energetic dance session</p></div>
+            <div class="time">
+              <i class="fas fa-microphone icon"></i> 10:00 - 10:20 AM
+            </div>
+            <div class="event">
+              <h3>Welcome Speech</h3>
+              <p>Welcome address by the Local Committee President.</p>
+            </div>
           </div>
           <div class="timeline-item">
-            <div class="time"><i class="fas fa-utensils icon"></i> 10:45 - 11:30 AM</div>
-            <div class="event"><h3>Avurudu Kama Mese</h3><p>Traditional New Year feast and refreshments</p></div>
+            <div class="time">
+              <i class="fas fa-award icon"></i> 10:20 - 10:30 AM
+            </div>
+            <div class="event">
+              <h3>Appreciation Ceremony</h3>
+              <p>Recognition of Members of the Month.</p>
+            </div>
           </div>
           <div class="timeline-item">
-            <div class="time"><i class="fas fa-gamepad icon"></i> 11:30 AM - 12:50 PM</div>
-            <div class="event"><h3>Traditional Games - Part 1</h3><p>Including three-legged balloon race, paper cup passing game, team formations, and Dancing 1.</p></div>
+            <div class="time">
+              <i class="fas fa-music icon"></i> 10:30 - 10:45 AM
+            </div>
+            <div class="event">
+              <h3>Jives</h3>
+              <p>Get energized with a fun dance session!</p>
+            </div>
           </div>
           <div class="timeline-item">
-            <div class="time"><i class="fas fa-fist-raised icon"></i> 12:50 PM - 2:40 PM</div>
-            <div class="event"><h3>Traditional Games - Part 2</h3><p>Including Avurudu Kumara/Kumariya nominations, Tug of War, Water balloon catch, Obstacle race, and Singing 1.</p></div>
-          </div>
-           <div class="timeline-item">
-            <div class="time"><i class="fas fa-puzzle-piece icon"></i> 2:40 PM - 3:00 PM</div>
-            <div class="event"><h3>Fun Break</h3><p>Singing 2 and The Floor is Lava game</p></div>
-          </div>
-          <div class="timeline-item">
-            <div class="time"><i class="fas fa-users icon"></i> 3:00 - 3:30 PM</div>
-            <div class="event"><h3>Panibambare</h3><p>Traditional game signifying unity and teamwork</p></div>
+            <div class="time">
+              <i class="fas fa-utensils icon"></i> 10:45 - 11:30 AM
+            </div>
+            <div class="event">
+              <h3>Avurudu Kama Mesaya</h3>
+              <p>Indulge in a traditional New Year feast.</p>
+            </div>
           </div>
           <div class="timeline-item">
-            <div class="time"><i class="fas fa-trophy icon"></i> 3:30 - 4:30 PM</div>
-            <div class="event"><h3>Closing Ceremonies</h3><p>Avurudu Kumara & Kumariya winners, prize distribution</p></div>
+            <div class="time">
+              <i class="fas fa-gamepad icon"></i> 11:30 AM - 12:50 PM
+            </div>
+            <div class="event">
+              <h3>Avurudu Games - Part 1</h3>
+              <p>Exciting traditional games session.</p>
+            </div>
           </div>
           <div class="timeline-item">
-            <div class="time"><i class="fas fa-handshake icon"></i> 4:30 - 5:00 PM</div>
-            <div class="event"><h3>Vote of Thanks & Final Jives</h3><p>Closing remarks by OCP - Dharshana followed by celebration dances</p></div>
+            <div class="time">
+              <i class="fas fa-fist-raised icon"></i> 12:50 PM - 2:40 PM
+            </div>
+            <div class="event">
+              <h3>Avurudu Games - Part 2</h3>
+              <p>
+                More games including Tug of War & Avurudu Kumaraya/Kumariya.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="time">
+              <i class="fas fa-puzzle-piece icon"></i> 2:40 PM - 3:00 PM
+            </div>
+            <div class="event">
+              <h3>Fun Break & Activities</h3>
+              <p>Engaging activities and short break.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="time">
+              <i class="fas fa-users icon"></i> 3:00 - 3:30 PM
+            </div>
+            <div class="event">
+              <h3>Pani Bambare</h3>
+              <p>Traditional game signifying unity and teamwork.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="time">
+              <i class="fas fa-trophy icon"></i> 3:30 - 4:30 PM
+            </div>
+            <div class="event">
+              <h3>Closing & Awards</h3>
+              <p>Avurudu Kumaraya/Kumariya crowning & prize distribution.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="time">
+              <i class="fas fa-handshake icon"></i> 4:30 - 5:00 PM
+            </div>
+            <div class="event">
+              <h3>Vote of Thanks & Final Jives</h3>
+              <p>Closing remarks and final celebratory dances.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -157,15 +235,48 @@
       <div class="container">
         <h2 class="section-title">Avurudu Nakath Times 2025</h2>
         <p class="nakath-subtitle">
-          Auspicious times for the Sinhala & Tamil New Year (Example Dates - Update with Official 2025 Times)
+          Auspicious times for the Sinhala & Tamil New Year (Official 2025 Times
+          Pending - Example Below)
         </p>
         <div class="nakath-grid">
-          <div class="nakath-card"><i class="fas fa-stopwatch nakath-icon"></i><h3>Punya Kalaya</h3><p class="time">April 13, Evening - April 14, Morning</p><p class="description">Transitional period for religious observances.</p></div>
-          <div class="nakath-card"><i class="fas fa-sun nakath-icon"></i><h3>Aluth Avurudu Udawa</h3><p class="time">April 14, Morning</p><p class="description">Sinhala & Tamil New Year dawns.</p></div>
-          <div class="nakath-card"><i class="fas fa-fire nakath-icon"></i><h3>Lip Ginni Meleweema</h3><p class="time">April 14, Morning</p><p class="description">Lighting the hearth to prepare the first meal.</p></div>
-          <div class="nakath-card"><i class="fas fa-briefcase nakath-icon"></i><h3>Weda Alleema & Ganu Denu</h3><p class="time">April 14, Morning</p><p class="description">Commencing work & first transaction.</p></div>
-          <div class="nakath-card"><i class="fas fa-utensils nakath-icon"></i><h3>Ahara Anubhawaya</h3><p class="time">April 14, Morning</p><p class="description">Partaking of the first meal.</p></div>
-          <div class="nakath-card"><i class="fas fa-hand-holding-medical nakath-icon"></i><h3>Hisa Thel Gama</h3><p class="time">April 16 or later, Morning</p><p class="description">Anointing oil on the head.</p></div>
+          <div class="nakath-card">
+            <i class="fas fa-stopwatch nakath-icon"></i>
+            <h3>Punya Kalaya Begins</h3>
+            <p class="time">April 13, Evening</p>
+            <p class="description">
+              Transitional period for religious observances.
+            </p>
+          </div>
+          <div class="nakath-card">
+            <i class="fas fa-sun nakath-icon"></i>
+            <h3>Aluth Avurudu Udawa</h3>
+            <p class="time">April 14, Morning</p>
+            <p class="description">Sinhala & Tamil New Year dawns.</p>
+          </div>
+          <div class="nakath-card">
+            <i class="fas fa-fire nakath-icon"></i>
+            <h3>Lighting the Hearth</h3>
+            <p class="time">April 14, Morning</p>
+            <p class="description">Auspicious time to light the hearth.</p>
+          </div>
+          <div class="nakath-card">
+            <i class="fas fa-briefcase nakath-icon"></i>
+            <h3>First Transactions</h3>
+            <p class="time">April 14, Morning</p>
+            <p class="description">Commencing work & Ganu Denu.</p>
+          </div>
+          <div class="nakath-card">
+            <i class="fas fa-utensils nakath-icon"></i>
+            <h3>First Meal</h3>
+            <p class="time">April 14, Morning</p>
+            <p class="description">Partaking of the first meal together.</p>
+          </div>
+          <div class="nakath-card">
+            <i class="fas fa-hand-holding-medical nakath-icon"></i>
+            <h3>Anointing Oil</h3>
+            <p class="time">April 16 (Check Date)</p>
+            <p class="description">Hisa Thel Gama ceremony.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -173,67 +284,78 @@
     <!-- Gallery Section -->
     <section id="gallery" class="gallery">
       <div class="container">
-        <h2 class="section-title">Event Gallery</h2>
+        <h2 class="section-title">Event Memories</h2>
         <div class="tabs">
-          <button class="tab-btn active" data-tab="photos">Past Photos</button>
-          <button class="tab-btn" data-tab="video">After Movie</button>
+          <button
+            class="tab-btn active"
+            data-tab="photos"
+            aria-controls="photos"
+          >
+            Featured Post
+          </button>
+          <button class="tab-btn" data-tab="video" aria-controls="video">
+            After Movie
+          </button>
         </div>
         <div class="tab-content">
-          <div id="photos" class="tab-pane active">
-            <div class="gallery-grid">
-              <!-- Make sure image paths are correct relative to index.html -->
-              <a href="images/gallery/441273727_968065501995743_7533115624589679999_n.jpg" class="gallery-item">
-                <img src="images/gallery/441273727_968065501995743_7533115624589679999_n.jpg" alt="Avurudu traditional games" loading="lazy"/>
-                <div class="overlay"><h3>Games in Action</h3></div>
-              </a>
-              <a href="images/gallery/441277334_968070871995206_8957006526169129370_n.jpg" class="gallery-item">
-                <img src="images/gallery/441277334_968070871995206_8957006526169129370_n.jpg" alt="Avurudu cultural performances" loading="lazy"/>
-                <div class="overlay"><h3>Performances</h3></div>
-              </a>
-              <a href="images/gallery/441276688_968065981995695_6527866171908313018_n.jpg" class="gallery-item">
-                 <img src="images/gallery/441276688_968065981995695_6527866171908313018_n.jpg" alt="Avurudu award ceremony" loading="lazy"/>
-                 <div class="overlay"><h3>Awards</h3></div>
-              </a>
-              <a href="images/gallery/441273729_968086305326996_2671721615102211187_n.jpg" class="gallery-item">
-                 <img src="images/gallery/441273729_968086305326996_2671721615102211187_n.jpg" alt="Avurudu opening ceremony" loading="lazy"/>
-                 <div class="overlay"><h3>Opening</h3></div>
-              </a>
-              <a href="images/gallery/445356690_968087095326917_127807529544813732_n.jpg" class="gallery-item">
-                 <img src="images/gallery/445356690_968087095326917_127807529544813732_n.jpg" alt="Avurudu team activities" loading="lazy"/>
-                 <div class="overlay"><h3>Team Fun</h3></div>
-              </a>
-              <a href="images/gallery/444480039_968087191993574_6664641348055544085_n.jpg" class="gallery-item">
-                 <img src="images/gallery/444480039_968087191993574_6664641348055544085_n.jpg" alt="Avurudu event group photo" loading="lazy"/>
-                 <div class="overlay"><h3>Group Photo</h3></div>
-              </a>
-              <a href="images/gallery/445463961_968089515326675_1199893474847611070_n.jpg" class="gallery-item">
-                 <img src="images/gallery/445463961_968089515326675_1199893474847611070_n.jpg" alt="Avurudu traditional dancing" loading="lazy"/>
-                 <div class="overlay"><h3>Dancing</h3></div>
-              </a>
-              <a href="images/gallery/445483682_968089371993356_3506477993880065223_n.jpg" class="gallery-item">
-                 <img src="images/gallery/445483682_968089371993356_3506477993880065223_n.jpg" alt="Avurudu oil lamp lighting" loading="lazy"/>
-                 <div class="overlay"><h3>Lamp Lighting</h3></div>
-              </a>
-              <a href="images/gallery/445493362_968086791993614_4064532941286078512_n.jpg" class="gallery-item">
-                 <img src="images/gallery/445493362_968086791993614_4064532941286078512_n.jpg" alt="Avurudu group activities" loading="lazy"/>
-                 <div class="overlay"><h3>Activities</h3></div>
-              </a>
-              <!-- Add more photos here -->
+          <!-- Photos Tab - Facebook Embed -->
+          <div
+            id="photos"
+            class="tab-pane active"
+            role="tabpanel"
+            aria-labelledby="photos-tab"
+          >
+            <p class="gallery-intro">
+              Check out highlights from previous celebrations!
+            </p>
+            <div class="facebook-embed-container">
+              <!-- ==== IMPORTANT: Replace with YOUR specific Facebook Post URL ==== -->
+              <iframe
+                src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fweb.facebook.com%2Fcraftglobal%2Fposts%2Fpfbid0CnYLThNmjHJ5FsRHr7kQUs4SQUMagnBtqNP5KSAV3fS4RCwY2zksyNHcyo1hLppsl&show_text=true&width=500&height=652"
+                width="500"
+                height="652"
+                style="
+                  border: none;
+                  overflow: hidden;
+                  display: block;
+                  margin: 0 auto;
+                "
+                scrolling="no"
+                frameborder="0"
+                allowfullscreen="true"
+                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                title="Featured Facebook Post"
+                loading="lazy"
+              >
+              </iframe>
+              <p class="embed-note">
+                Note: Facebook post may take a moment to load.
+              </p>
             </div>
           </div>
-          <div id="video" class="tab-pane">
+          <!-- Video Tab - YouTube Embed -->
+          <div
+            id="video"
+            class="tab-pane"
+            role="tabpanel"
+            aria-labelledby="video-tab"
+          >
+            <p class="gallery-intro">
+              Relive the excitement of last year's Avurudu LCM!
+            </p>
             <div class="video-container">
+              <!-- ==== IMPORTANT: Replace YOUR_VIDEO_ID_HERE with your YouTube Video ID ==== -->
               <iframe
-                src="https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE" <!-- === REPLACE with actual YouTube Video ID === -->
-                title="YouTube video player"
+                src="https://www.youtube.com/embed/c5iT-a45EJc?si=gZxEEwD5nUn3JW8R"
+                title="Avurudu LCM After Movie"
                 frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                loading="lazy"
+              >
               </iframe>
             </div>
-            <p class="video-caption">
-              Avurudu LCM '24 After Movie - Relive the memories!
-            </p>
+            <p class="video-caption">Avurudu LCM '24 After Movie</p>
           </div>
         </div>
       </div>
@@ -242,116 +364,634 @@
     <!-- Avurudu Games Section -->
     <section id="games" class="games">
       <div class="container">
-          <h2 class="section-title">Avurudu Games!</h2>
-          <div class="games-grid">
-
-              <!-- Game 1: Kana Mutti -->
-              <div class="game-card kana-mutti-game">
-                  <h3><i class="fas fa-certificate"></i> Kana Mutti Bindeema</h3>
-                  <p class="instructions">Click on a pot below to try and find the hidden prize!</p>
-                  <div class="pots-container" id="kana-mutti-pots">
-                      <div class="pot" data-id="1"><img src="images/games/pot.png" alt="Pot 1" loading="lazy"></div>
-                      <div class="pot" data-id="2"><img src="images/games/pot.png" alt="Pot 2" loading="lazy"></div>
-                      <div class="pot" data-id="3"><img src="images/games/pot.png" alt="Pot 3" loading="lazy"></div>
-                      <div class="pot" data-id="4"><img src="images/games/pot.png" alt="Pot 4" loading="lazy"></div>
-                      <div class="pot" data-id="5"><img src="images/games/pot.png" alt="Pot 5" loading="lazy"></div>
-                      <div class="pot" data-id="6"><img src="images/games/pot.png" alt="Pot 6" loading="lazy"></div>
-                  </div>
-                  <p class="game-message" id="kana-mutti-message"></p>
-                  <button class="btn game-reset-btn" id="kana-mutti-reset">Play Again</button>
-              </div>
-
-              <!-- Game 2: Aliyata Eha -->
-              <div class="game-card elephant-game">
-                  <h3><i class="fas fa-eye"></i> Aliyata Eha Thabeema</h3>
-                  <p class="instructions">Memorize the eye position, then click where it belongs after it rotates!</p>
-                  <div class="elephant-area" id="elephant-area">
-                       <img src="images/games/elephant.png" alt="Elephant line drawing" class="elephant-bg" loading="lazy">
-                       <img src="images/games/eye.png" alt="Elephant Eye" class="elephant-eye" id="elephant-eye">
-                       <div class="correct-eye-spot" id="correct-eye-spot"></div>
-                  </div>
-                  <button class="btn game-action-btn" id="elephant-check">Check Placement</button>
-                  <p class="game-message" id="elephant-message"></p>
-                  <button class="btn game-reset-btn" id="elephant-reset">Try Again</button>
-              </div>
-
-              <!-- Game 3: Guess Kavum -->
-               <div class="game-card kavum-game">
-                   <h3><i class="fas fa-question-circle"></i> Guess the Kavum!</h3>
-                   <p class="instructions">How many Kavum are in the virtual basket? (Guess between 1 and 20)</p>
-                   <div class="form-group-game">
-                      <label for="kavum-guess">Your Guess:</label>
-                      <input type="number" id="kavum-guess" name="kavum-guess" min="1" max="20">
-                   </div>
-                   <button class="btn game-action-btn" id="kavum-submit">Make Guess</button>
-                    <p class="game-message" id="kavum-message"></p>
-                    <button class="btn game-reset-btn" id="kavum-reset">New Game</button>
-               </div>
-
+        <h2 class="section-title">Avurudu Fun Zone!</h2>
+        <div class="games-grid">
+          <!-- Game 1: Kana Mutti -->
+          <div class="game-card kana-mutti-game">
+            <div class="game-icon-container">
+              <i class="fas fa-bowling-ball"></i>
+            </div>
+            <h3>Kana Mutti Bindeema</h3>
+            <p class="instructions">
+              Click a pot below. Will you find the prize or just clay shards?
+            </p>
+            <div class="pots-container" id="kana-mutti-pots">
+              <button class="pot" data-id="1" aria-label="Pot 1">
+                <img src="images/games/pot.png" alt="Clay Pot" loading="lazy" />
+              </button>
+              <button class="pot" data-id="2" aria-label="Pot 2">
+                <img src="images/games/pot.png" alt="Clay Pot" loading="lazy" />
+              </button>
+              <button class="pot" data-id="3" aria-label="Pot 3">
+                <img src="images/games/pot.png" alt="Clay Pot" loading="lazy" />
+              </button>
+              <button class="pot" data-id="4" aria-label="Pot 4">
+                <img src="images/games/pot.png" alt="Clay Pot" loading="lazy" />
+              </button>
+              <button class="pot" data-id="5" aria-label="Pot 5">
+                <img src="images/games/pot.png" alt="Clay Pot" loading="lazy" />
+              </button>
+              <button class="pot" data-id="6" aria-label="Pot 6">
+                <img src="images/games/pot.png" alt="Clay Pot" loading="lazy" />
+              </button>
+            </div>
+            <p
+              class="game-message"
+              id="kana-mutti-message"
+              aria-live="polite"
+            ></p>
+            <button class="btn game-reset-btn" id="kana-mutti-reset">
+              Play Again
+            </button>
           </div>
+
+          <!-- Game 2: Aliyata Eha -->
+          <div class="game-card elephant-game">
+            <div class="game-icon-container">
+              <i class="fas fa-eye-slash"></i>
+            </div>
+            <h3>Aliyata Eha Thabeema</h3>
+            <p class="instructions">
+              Memorize the eye's spot, then click where it should be after the
+              spin!
+            </p>
+            <div class="elephant-area" id="elephant-area">
+              <img
+                src="images/games/elephant-outline.png"
+                alt="Elephant outline"
+                class="elephant-bg"
+                loading="lazy"
+              />
+              <!-- Use an outline image -->
+              <img
+                src="images/games/eye.png"
+                alt="Elephant Eye"
+                class="elephant-eye"
+                id="elephant-eye"
+                loading="lazy"
+              />
+              <div class="correct-eye-spot" id="correct-eye-spot"></div>
+            </div>
+            <button class="btn game-action-btn" id="elephant-check">
+              Check Placement
+            </button>
+            <p
+              class="game-message"
+              id="elephant-message"
+              aria-live="polite"
+            ></p>
+            <button class="btn game-reset-btn" id="elephant-reset">
+              Try Again
+            </button>
+          </div>
+
+          <!-- Game 3: Guess Kavum -->
+          <div class="game-card kavum-game">
+            <div class="game-icon-container">
+              <i class="fas fa-cookie-bite"></i>
+            </div>
+            <h3>Guess the Kavum!</h3>
+            <p class="instructions">
+              How many delicious Kavum are hidden? (Guess 1-20)
+            </p>
+            <div class="form-group-game">
+              <label for="kavum-guess">Your Guess:</label>
+              <input
+                type="number"
+                id="kavum-guess"
+                name="kavum-guess"
+                min="1"
+                max="20"
+                placeholder="e.g., 15"
+              />
+            </div>
+            <button class="btn game-action-btn" id="kavum-submit">
+              Make Guess
+            </button>
+            <p class="game-message" id="kavum-message" aria-live="polite"></p>
+            <button class="btn game-reset-btn" id="kavum-reset">
+              New Game
+            </button>
+          </div>
+        </div>
       </div>
-  </section>
+    </section>
 
     <!-- OC Team Section -->
     <section id="oc-team" class="oc-team">
       <div class="container">
         <h2 class="section-title">Meet the Organizing Committee</h2>
         <div class="oc-grid">
-          <!-- Ensure image paths are images/oc/FirstName.jpg -->
           <!-- OCP -->
-          <div class="oc-card"><img src="images/oc/Darshana.jpg" alt="Darshana Weerasuriya Profile Photo" class="oc-img" loading="lazy" onerror="this.src='images/oc/placeholder.png'"><h3 class="oc-name">Darshana Weerasuriya</h3><h4 class="oc-position">Organizing Committee President (OCP)</h4><p class="oc-contact"><i class="fas fa-envelope"></i> darshananuwan@aiesec.net</p><div class="oc-social"><a href="https://www.linkedin.com/in/dharshana-weerasuriya/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a><a href="https://www.facebook.com/dharshana.nuwan.3" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a><a href="https://www.instagram.com/dharshana_nuwan/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a></div></div>
+          <div class="oc-card">
+            <img
+              src="images/oc/Darshana.jpg"
+              alt="Darshana Weerasuriya Profile"
+              class="oc-img"
+              loading="lazy"
+              onerror="this.src='images/oc/placeholder.png'"
+            />
+            <h3 class="oc-name">Darshana Weerasuriya</h3>
+            <h4 class="oc-position">Organizing Committee President</h4>
+            <p class="oc-contact">
+              <i class="fas fa-envelope"></i> darshananuwan@aiesec.net
+            </p>
+            <div class="oc-social">
+              <a
+                href="https://www.linkedin.com/in/dharshana-weerasuriya/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Darshana's LinkedIn"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+              <a
+                href="https://www.facebook.com/dharshana.nuwan.3"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Darshana's Facebook"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/dharshana_nuwan/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Darshana's Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </div>
+          </div>
           <!-- OCVP PD -->
-          <div class="oc-card"><img src="images/oc/Dinuka.jpg" alt="Dinuka Wimalagunasekara Profile Photo" class="oc-img" loading="lazy" onerror="this.src='images/oc/placeholder.png'"><h3 class="oc-name">Dinuka Wimalagunasekara</h3><h4 class="oc-position">OCVP Partnerships Development</h4><p class="oc-contact"><i class="fas fa-envelope"></i> diw02@aiesec.net</p><div class="oc-social"><a href="https://www.linkedin.com/in/dinuka-wimalagunasekara/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a></div></div>
-          <div class="oc-card"><img src="images/oc/Navidi.jpg" alt="Navidi Wanigasekara Profile Photo" class="oc-img" loading="lazy" onerror="this.src='images/oc/placeholder.png'"><h3 class="oc-name">Navidi Wanigasekara</h3><h4 class="oc-position">OCVP Partnerships Development</h4><p class="oc-contact"><i class="fas fa-envelope"></i> navidi.wanigasekara@aiesec.net</p><div class="oc-social"><a href="https://www.linkedin.com/in/navidi-wanigasekara-a3a213288/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a></div></div>
-          <div class="oc-card"><img src="images/oc/Tharuka.jpg" alt="Tharuka Gunarathne Profile Photo" class="oc-img" loading="lazy" onerror="this.src='images/oc/placeholder.png'"><h3 class="oc-name">Tharuka Gunarathne</h3><h4 class="oc-position">OCVP Partnerships Development</h4><p class="oc-contact"><i class="fas fa-envelope"></i> tharukagunarathne@aiesec.net</p><div class="oc-social"><a href="https://www.linkedin.com/in/tharuka-gunarathne-5b1b3a277/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a></div></div>
+          <div class="oc-card">
+            <img
+              src="images/oc/Dinuka.jpg"
+              alt="Dinuka Wimalagunasekara Profile"
+              class="oc-img"
+              loading="lazy"
+              onerror="this.src='images/oc/placeholder.png'"
+            />
+            <h3 class="oc-name">Dinuka Wimalagunasekara</h3>
+            <h4 class="oc-position">OCVP Partnerships Development</h4>
+            <p class="oc-contact">
+              <i class="fas fa-envelope"></i> diw02@aiesec.net
+            </p>
+            <div class="oc-social">
+              <a
+                href="https://www.linkedin.com/in/dinuka-wimalagunasekara/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Dinuka's LinkedIn"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+          <div class="oc-card">
+            <img
+              src="images/oc/Navidi.jpg"
+              alt="Navidi Wanigasekara Profile"
+              class="oc-img"
+              loading="lazy"
+              onerror="this.src='images/oc/placeholder.png'"
+            />
+            <h3 class="oc-name">Navidi Wanigasekara</h3>
+            <h4 class="oc-position">OCVP Partnerships Development</h4>
+            <p class="oc-contact">
+              <i class="fas fa-envelope"></i> navidi.wanigasekara@aiesec.net
+            </p>
+            <div class="oc-social">
+              <a
+                href="https://www.linkedin.com/in/navidi-wanigasekara-a3a213288/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Navidi's LinkedIn"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+          <div class="oc-card">
+            <img
+              src="images/oc/Tharuka.jpg"
+              alt="Tharuka Gunarathne Profile"
+              class="oc-img"
+              loading="lazy"
+              onerror="this.src='images/oc/placeholder.png'"
+            />
+            <h3 class="oc-name">Tharuka Gunarathne</h3>
+            <h4 class="oc-position">OCVP Partnerships Development</h4>
+            <p class="oc-contact">
+              <i class="fas fa-envelope"></i> tharukagunarathne@aiesec.net
+            </p>
+            <div class="oc-social">
+              <a
+                href="https://www.linkedin.com/in/tharuka-gunarathne-5b1b3a277/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Tharuka's LinkedIn"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
           <!-- OCVP MKT -->
-          <div class="oc-card"><img src="images/oc/Sumindee.jpg" alt="Sumindee Abeywickrama Profile Photo" class="oc-img" loading="lazy" onerror="this.src='images/oc/placeholder.png'"><h3 class="oc-name">Sumindee Abeywickrama</h3><h4 class="oc-position">OCVP Marketing</h4><p class="oc-contact"><i class="fas fa-envelope"></i> sumindeeabeywickrama@aiesec.net</p><div class="oc-social"><a href="https://www.linkedin.com/in/sumindee-abeywickrama-b831a3288/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a><a href="https://www.facebook.com/sumindee.abeywickrama.1" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a><a href="https://www.instagram.com/sumi_abeywickrama_/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a></div></div>
-          <div class="oc-card"><img src="images/oc/Jemima.jpg" alt="Jemima Mohamed Profile Photo" class="oc-img" loading="lazy" onerror="this.src='images/oc/placeholder.png'"><h3 class="oc-name">Jemima Mohamed</h3><h4 class="oc-position">OCVP Marketing</h4><p class="oc-contact"><i class="fas fa-envelope"></i> jemimamohamed@aiesec.net</p><div class="oc-social"><a href="https://www.linkedin.com/in/jemima-mohamed-7a06292a7/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a><a href="https://www.facebook.com/jemima.mohamed.7" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a><a href="https://www.instagram.com/jemima.mohamed/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a></div></div>
-          <div class="oc-card"><img src="images/oc/Aathavan.jpg" alt="Suharnan Aathavan Profile Photo" class="oc-img" loading="lazy" onerror="this.src='images/oc/placeholder.png'"><h3 class="oc-name">Suharnan Aathavan</h3><h4 class="oc-position">OCVP Marketing</h4><p class="oc-contact"><i class="fas fa-envelope"></i> suharnan.aathavan@aiesec.net</p><div class="oc-social"><a href="https://www.linkedin.com/in/suharnan-aathavan-661b73288/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a><a href="https://www.facebook.com/aathavan.suharnan.7" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a><a href="https://www.instagram.com/aathavan_suharnan/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a></div></div>
-           <!-- OCVP LOGI -->
-           <div class="oc-card"><img src="images/oc/Krishwin.jpg" alt="Krishiwnthan Gobinath Profile Photo" class="oc-img" loading="lazy" onerror="this.src='images/oc/placeholder.png'"><h3 class="oc-name">Krishiwnthan Gobinath</h3><h4 class="oc-position">OCVP Logistics</h4><p class="oc-contact"><i class="fas fa-envelope"></i> kriishwingobinath@aiesec.net</p><div class="oc-social"><a href="https://www.linkedin.com/in/krishiwnthan-gobinath-90315b288/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a><a href="https://www.facebook.com/krish.gobinath" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a><a href="https://www.instagram.com/kriishwinn/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a></div></div>
-           <div class="oc-card"><img src="images/oc/Achinthya.jpg" alt="Achinthya Bimsara Profile Photo" class="oc-img" loading="lazy" onerror="this.src='images/oc/placeholder.png'"><h3 class="oc-name">Achinthya Bimsara</h3><h4 class="oc-position">OCVP Logistics</h4><p class="oc-contact"><i class="fas fa-envelope"></i> achinthyabimsara@aiesec.net</p><div class="oc-social"><a href="https://www.linkedin.com/in/achinthya-bimsara-b7703a252/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a><a href="https://www.facebook.com/achinthya.bimsara.58" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a></div></div>
-           <div class="oc-card"><img src="images/oc/Isuru.jpg" alt="Isuru Anuraja Profile Photo" class="oc-img" loading="lazy" onerror="this.src='images/oc/placeholder.png'"><h3 class="oc-name">Isuru Anuraja</h3><h4 class="oc-position">OCVP Logistics</h4><p class="oc-contact"><i class="fas fa-envelope"></i> isuruanuraja0@gmail.com</p><div class="oc-social"><a href="https://www.linkedin.com/in/isuru-anuraja-79656b280/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a><a href="https://www.facebook.com/profile.php?id=100074365890315" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a><a href="https://www.instagram.com/isuruanuraja/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a></div></div>
-           <!-- OCVP DELE -->
-           <div class="oc-card"><img src="images/oc/Thulanga.jpg" alt="Thulanga Ambagahawatta Profile Photo" class="oc-img" loading="lazy" onerror="this.src='images/oc/placeholder.png'"><h3 class="oc-name">Thulanga Ambagahawatta</h3><h4 class="oc-position">OCVP Delegates</h4><p class="oc-contact"><i class="fas fa-envelope"></i> thulangaambagahawatta@aiesec.net</p><div class="oc-social"><a href="https://www.linkedin.com/in/thulanga-ambagahawatta-29050a28a/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a><a href="https://www.instagram.com/thulanga.ambagahawatta/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a></div></div>
-           <div class="oc-card"><img src="images/oc/Yenuri.jpg" alt="Yenuri Perera Profile Photo" class="oc-img" loading="lazy" onerror="this.src='images/oc/placeholder.png'"><h3 class="oc-name">Yenuri Perera</h3><h4 class="oc-position">OCVP Delegates</h4><p class="oc-contact"><i class="fas fa-envelope"></i> yenurivihanga@aiesec.net</p><div class="oc-social"><a href="https://www.linkedin.com/in/yenuri-perera-1a1461288/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a><a href="https://www.facebook.com/yenuri.perera.1" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a><a href="https://www.instagram.com/yenuri_perera/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a></div></div>
-           <!-- OCVP EVT -->
-           <div class="oc-card"><img src="images/oc/Tharushi.jpg" alt="Tharushi Abeyrathne Profile Photo" class="oc-img" loading="lazy" onerror="this.src='images/oc/placeholder.png'"><h3 class="oc-name">Tharushi Abeyrathne</h3><h4 class="oc-position">OCVP Events</h4><p class="oc-contact"><i class="fas fa-envelope"></i> tharushiabeyrathne@aiesec.net</p><div class="oc-social"><a href="https://www.linkedin.com/in/tharushi-abeyrathne-b81517278/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a><a href="https://www.facebook.com/tharushi.abeyrathne.14" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a><a href="https://www.instagram.com/tharushi_abeyrathne_/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a></div></div>
-           <div class="oc-card"><img src="images/oc/Naduna.jpg" alt="Naduna Ranasinghe Profile Photo" class="oc-img" loading="lazy" onerror="this.src='images/oc/placeholder.png'"><h3 class="oc-name">Naduna Ranasinghe</h3><h4 class="oc-position">OCVP Events</h4><p class="oc-contact"><i class="fas fa-envelope"></i> nadunanavod@aiesec.net</p><div class="oc-social"><a href="https://www.facebook.com/naduna.ranasinghe.1" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a></div></div>
+          <div class="oc-card">
+            <img
+              src="images/oc/Sumindee.jpg"
+              alt="Sumindee Abeywickrama Profile"
+              class="oc-img"
+              loading="lazy"
+              onerror="this.src='images/oc/placeholder.png'"
+            />
+            <h3 class="oc-name">Sumindee Abeywickrama</h3>
+            <h4 class="oc-position">OCVP Marketing</h4>
+            <p class="oc-contact">
+              <i class="fas fa-envelope"></i> sumindeeabeywickrama@aiesec.net
+            </p>
+            <div class="oc-social">
+              <a
+                href="https://www.linkedin.com/in/sumindee-abeywickrama-b831a3288/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Sumindee's LinkedIn"
+                ><i class="fab fa-linkedin-in"></i></a
+              ><a
+                href="https://www.facebook.com/sumindee.abeywickrama.1"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Sumindee's Facebook"
+                ><i class="fab fa-facebook-f"></i></a
+              ><a
+                href="https://www.instagram.com/sumi_abeywickrama_/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Sumindee's Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </div>
+          </div>
+          <div class="oc-card">
+            <img
+              src="images/oc/Jemima.jpg"
+              alt="Jemima Mohamed Profile"
+              class="oc-img"
+              loading="lazy"
+              onerror="this.src='images/oc/placeholder.png'"
+            />
+            <h3 class="oc-name">Jemima Mohamed</h3>
+            <h4 class="oc-position">OCVP Marketing</h4>
+            <p class="oc-contact">
+              <i class="fas fa-envelope"></i> jemimamohamed@aiesec.net
+            </p>
+            <div class="oc-social">
+              <a
+                href="https://www.linkedin.com/in/jemima-mohamed-7a06292a7/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Jemima's LinkedIn"
+                ><i class="fab fa-linkedin-in"></i></a
+              ><a
+                href="https://www.facebook.com/jemima.mohamed.7"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Jemima's Facebook"
+                ><i class="fab fa-facebook-f"></i></a
+              ><a
+                href="https://www.instagram.com/jemima.mohamed/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Jemima's Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </div>
+          </div>
+          <div class="oc-card">
+            <img
+              src="images/oc/Aathavan.jpg"
+              alt="Suharnan Aathavan Profile"
+              class="oc-img"
+              loading="lazy"
+              onerror="this.src='images/oc/placeholder.png'"
+            />
+            <h3 class="oc-name">Suharnan Aathavan</h3>
+            <h4 class="oc-position">OCVP Marketing</h4>
+            <p class="oc-contact">
+              <i class="fas fa-envelope"></i> suharnan.aathavan@aiesec.net
+            </p>
+            <div class="oc-social">
+              <a
+                href="https://www.linkedin.com/in/suharnan-aathavan-661b73288/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Aathavan's LinkedIn"
+                ><i class="fab fa-linkedin-in"></i></a
+              ><a
+                href="https://www.facebook.com/aathavan.suharnan.7"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Aathavan's Facebook"
+                ><i class="fab fa-facebook-f"></i></a
+              ><a
+                href="https://www.instagram.com/aathavan_suharnan/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Aathavan's Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </div>
+          </div>
+          <!-- OCVP LOGI -->
+          <div class="oc-card">
+            <img
+              src="images/oc/Krishwin.jpg"
+              alt="Krishiwnthan Gobinath Profile"
+              class="oc-img"
+              loading="lazy"
+              onerror="this.src='images/oc/placeholder.png'"
+            />
+            <h3 class="oc-name">Krishiwnthan Gobinath</h3>
+            <h4 class="oc-position">OCVP Logistics</h4>
+            <p class="oc-contact">
+              <i class="fas fa-envelope"></i> kriishwingobinath@aiesec.net
+            </p>
+            <div class="oc-social">
+              <a
+                href="https://www.linkedin.com/in/krishiwnthan-gobinath-90315b288/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Krishiwnthan's LinkedIn"
+                ><i class="fab fa-linkedin-in"></i></a
+              ><a
+                href="https://www.facebook.com/krish.gobinath"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Krishiwnthan's Facebook"
+                ><i class="fab fa-facebook-f"></i></a
+              ><a
+                href="https://www.instagram.com/kriishwinn/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Krishiwnthan's Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </div>
+          </div>
+          <div class="oc-card">
+            <img
+              src="images/oc/Achinthya.jpg"
+              alt="Achinthya Bimsara Profile"
+              class="oc-img"
+              loading="lazy"
+              onerror="this.src='images/oc/placeholder.png'"
+            />
+            <h3 class="oc-name">Achinthya Bimsara</h3>
+            <h4 class="oc-position">OCVP Logistics</h4>
+            <p class="oc-contact">
+              <i class="fas fa-envelope"></i> achinthyabimsara@aiesec.net
+            </p>
+            <div class="oc-social">
+              <a
+                href="https://www.linkedin.com/in/achinthya-bimsara-b7703a252/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Achinthya's LinkedIn"
+                ><i class="fab fa-linkedin-in"></i></a
+              ><a
+                href="https://www.facebook.com/achinthya.bimsara.58"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Achinthya's Facebook"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+            </div>
+          </div>
+          <div class="oc-card">
+            <img
+              src="images/oc/Isuru.jpg"
+              alt="Isuru Anuraja Profile"
+              class="oc-img"
+              loading="lazy"
+              onerror="this.src='images/oc/placeholder.png'"
+            />
+            <h3 class="oc-name">Isuru Anuraja</h3>
+            <h4 class="oc-position">OCVP Logistics</h4>
+            <p class="oc-contact">
+              <i class="fas fa-envelope"></i> isuruanuraja0@gmail.com
+            </p>
+            <div class="oc-social">
+              <a
+                href="https://www.linkedin.com/in/isuru-anuraja-79656b280/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Isuru's LinkedIn"
+                ><i class="fab fa-linkedin-in"></i></a
+              ><a
+                href="https://www.facebook.com/profile.php?id=100074365890315"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Isuru's Facebook"
+                ><i class="fab fa-facebook-f"></i></a
+              ><a
+                href="https://www.instagram.com/isuruanuraja/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Isuru's Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </div>
+          </div>
+          <!-- OCVP DELE -->
+          <div class="oc-card">
+            <img
+              src="images/oc/Thulanga.jpg"
+              alt="Thulanga Ambagahawatta Profile"
+              class="oc-img"
+              loading="lazy"
+              onerror="this.src='images/oc/placeholder.png'"
+            />
+            <h3 class="oc-name">Thulanga Ambagahawatta</h3>
+            <h4 class="oc-position">OCVP Delegates</h4>
+            <p class="oc-contact">
+              <i class="fas fa-envelope"></i> thulangaambagahawatta@aiesec.net
+            </p>
+            <div class="oc-social">
+              <a
+                href="https://www.linkedin.com/in/thulanga-ambagahawatta-29050a28a/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Thulanga's LinkedIn"
+                ><i class="fab fa-linkedin-in"></i></a
+              ><a
+                href="https://www.instagram.com/thulanga.ambagahawatta/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Thulanga's Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </div>
+          </div>
+          <div class="oc-card">
+            <img
+              src="images/oc/Yenuri.jpg"
+              alt="Yenuri Perera Profile"
+              class="oc-img"
+              loading="lazy"
+              onerror="this.src='images/oc/placeholder.png'"
+            />
+            <h3 class="oc-name">Yenuri Perera</h3>
+            <h4 class="oc-position">OCVP Delegates</h4>
+            <p class="oc-contact">
+              <i class="fas fa-envelope"></i> yenurivihanga@aiesec.net
+            </p>
+            <div class="oc-social">
+              <a
+                href="https://www.linkedin.com/in/yenuri-perera-1a1461288/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Yenuri's LinkedIn"
+                ><i class="fab fa-linkedin-in"></i></a
+              ><a
+                href="https://www.facebook.com/yenuri.perera.1"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Yenuri's Facebook"
+                ><i class="fab fa-facebook-f"></i></a
+              ><a
+                href="https://www.instagram.com/yenuri_perera/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Yenuri's Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </div>
+          </div>
+          <!-- OCVP EVT -->
+          <div class="oc-card">
+            <img
+              src="images/oc/Tharushi.jpg"
+              alt="Tharushi Abeyrathne Profile"
+              class="oc-img"
+              loading="lazy"
+              onerror="this.src='images/oc/placeholder.png'"
+            />
+            <h3 class="oc-name">Tharushi Abeyrathne</h3>
+            <h4 class="oc-position">OCVP Events</h4>
+            <p class="oc-contact">
+              <i class="fas fa-envelope"></i> tharushiabeyrathne@aiesec.net
+            </p>
+            <div class="oc-social">
+              <a
+                href="https://www.linkedin.com/in/tharushi-abeyrathne-b81517278/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Tharushi's LinkedIn"
+                ><i class="fab fa-linkedin-in"></i></a
+              ><a
+                href="https://www.facebook.com/tharushi.abeyrathne.14"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Tharushi's Facebook"
+                ><i class="fab fa-facebook-f"></i></a
+              ><a
+                href="https://www.instagram.com/tharushi_abeyrathne_/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Tharushi's Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </div>
+          </div>
+          <div class="oc-card">
+            <img
+              src="images/oc/Naduna.jpg"
+              alt="Naduna Ranasinghe Profile"
+              class="oc-img"
+              loading="lazy"
+              onerror="this.src='images/oc/placeholder.png'"
+            />
+            <h3 class="oc-name">Naduna Ranasinghe</h3>
+            <h4 class="oc-position">OCVP Events</h4>
+            <p class="oc-contact">
+              <i class="fas fa-envelope"></i> nadunanavod@aiesec.net
+            </p>
+            <div class="oc-social">
+              <a
+                href="https://www.facebook.com/naduna.ranasinghe.1"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Naduna's Facebook"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Registration Section (Google Form Embed) -->
     <section id="register" class="register">
-        <div class="container">
-            <h2 class="section-title">Register for Avurudu LCM '25</h2>
-            <p class="register-desc">
-                Please register using the embedded Google Form below. Limited spots available!
-            </p>
-             <!-- Embedded Google Form -->
-            <div class="registration-iframe-container">
-                <iframe
-                     id="google-form"
-                     src="https://forms.gle/q6fvKgh3XrWjJyVb6"  <!-- === REPLACE with your actual Google Form embed URL === -->
-                     frameborder="0"
-                     aria-label="Registration Form"
-                     >Loading…</iframe
-                     >
-             </div>
+      <div class="container">
+        <h2 class="section-title">Register for Avurudu LCM '25</h2>
+        <p class="register-desc">
+          Don't miss out on the celebration! Secure your spot by registering
+          below. Limited places available, so sign up soon!
+        </p>
+        <!-- Embedded Google Form -->
+        <div class="registration-iframe-container">
+          <!-- ==== IMPORTANT: Replace with YOUR actual Google Form embed URL ==== -->
+          <!-- Make sure the form sharing setting allows embedding -->
+          <iframe
+            id="google-form"
+            src="https://forms.gle/q6fvKgh3XrWjJyVb6"
+            frameborder="0"
+            aria-label="Registration Form"
+            title="Event Registration Form"
+            loading="lazy"
+            >Loading Registration Form…</iframe
+          >
         </div>
+        <p class="form-note">
+          Having trouble with the form?
+          <a
+            href="https://forms.gle/YOUR_DIRECT_GOOGLE_FORM_LINK"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Open in a new tab</a
+          >.
+        </p>
+        <!-- Add direct link -->
+      </div>
     </section>
-
 
     <!-- Additional Info Section -->
     <section class="info">
       <div class="container">
-        <h2 class="section-title">Event Information</h2>
+        <h2 class="section-title">Event Details</h2>
         <div class="info-grid">
-          <div class="info-card"><i class="fas fa-map-marker-alt"></i><h3>Venue</h3><p>University of Sri Jayewardenepura<br />Upper Grounds</p></div>
-          <div class="info-card"><i class="fas fa-calendar-alt"></i><h3>Date & Time</h3><p>April 19, 2025<br />8:30 AM - 5:00 PM</p></div>
-          <div class="info-card"><i class="fas fa-tshirt"></i><h3>Dress Code</h3><p>Traditional Sri Lankan Attire<br />(Red/Yellow/Gold preferred)</p></div>
-          <div class="info-card"><i class="fas fa-headset"></i><h3>Queries?</h3><p>Contact the Delegate Team<br />or OCP Dharshana</p></div>
+          <div class="info-card">
+            <i class="fas fa-map-marked-alt info-icon"></i>
+            <h3>Venue</h3>
+            <p>
+              University of Sri Jayewardenepura<br />Upper Grounds (Sumangala
+              Premises)
+            </p>
+          </div>
+          <div class="info-card">
+            <i class="fas fa-calendar-day info-icon"></i>
+            <h3>Date & Time</h3>
+            <p>April 19, 2025<br />8:30 AM - 5:00 PM</p>
+          </div>
+          <div class="info-card">
+            <i class="fas fa-tshirt info-icon"></i>
+            <h3>Dress Code</h3>
+            <p>
+              Traditional Sri Lankan Attire<br />(Red, Yellow, Gold themes
+              encouraged!)
+            </p>
+          </div>
+          <div class="info-card">
+            <i class="fas fa-headset info-icon"></i>
+            <h3>Have Questions?</h3>
+            <p>
+              Reach out to our Delegate Team or OCP Dharshana (Contacts below).
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -360,39 +1000,119 @@
     <footer>
       <div class="container">
         <!-- Footer Key Contacts -->
-         <div class="footer-key-contacts">
-            <h3 class="footer-section-title">Key Contacts</h3>
-            <div class="footer-contacts-grid">
-                <!-- OCP -->
-                <div class="footer-contact-card"><img src="images/oc/Darshana.jpg" alt="Darshana Weerasuriya Contact Photo" loading="lazy" onerror="this.src='images/oc/placeholder.png'"><div><h4>Darshana Weerasuriya</h4><p>OC President</p><p><i class="fas fa-phone"></i> +94 71 882 2103</p></div></div>
-                <!-- Dele VP 1 -->
-                 <div class="footer-contact-card"><img src="images/oc/Thulanga.jpg" alt="Thulanga Ambagahawatta Contact Photo" loading="lazy" onerror="this.src='images/oc/placeholder.png'"><div><h4>Thulanga Ambagahawatta</h4><p>OCVP Delegates</p><p><i class="fas fa-phone"></i> +94 71 182 8372</p></div></div>
-                 <!-- Dele VP 2 -->
-                 <div class="footer-contact-card"><img src="images/oc/Yenuri.jpg" alt="Yenuri Perera Contact Photo" loading="lazy" onerror="this.src='images/oc/placeholder.png'"><div><h4>Yenuri Perera</h4><p>OCVP Delegates</p><p><i class="fas fa-phone"></i> +94 71 036 8820</p></div></div>
+        <div class="footer-key-contacts">
+          <h3 class="footer-section-title">Key Contacts</h3>
+          <div class="footer-contacts-grid">
+            <!-- OCP -->
+            <div class="footer-contact-card">
+              <img
+                src="images/oc/Darshana.jpg"
+                alt="Darshana Weerasuriya Contact"
+                loading="lazy"
+                onerror="this.src='images/oc/placeholder.png'"
+              />
+              <div>
+                <h4>Darshana Weerasuriya</h4>
+                <p>OC President</p>
+                <p>
+                  <a href="tel:+94718822103"
+                    ><i class="fas fa-phone"></i> +94 71 882 2103</a
+                  >
+                </p>
+              </div>
             </div>
+            <!-- Dele VP 1 -->
+            <div class="footer-contact-card">
+              <img
+                src="images/oc/Thulanga.jpg"
+                alt="Thulanga Ambagahawatta Contact"
+                loading="lazy"
+                onerror="this.src='images/oc/placeholder.png'"
+              />
+              <div>
+                <h4>Thulanga Ambagahawatta</h4>
+                <p>OCVP Delegates</p>
+                <p>
+                  <a href="tel:+94711828372"
+                    ><i class="fas fa-phone"></i> +94 71 182 8372</a
+                  >
+                </p>
+              </div>
+            </div>
+            <!-- Dele VP 2 -->
+            <div class="footer-contact-card">
+              <img
+                src="images/oc/Yenuri.jpg"
+                alt="Yenuri Perera Contact"
+                loading="lazy"
+                onerror="this.src='images/oc/placeholder.png'"
+              />
+              <div>
+                <h4>Yenuri Perera</h4>
+                <p>OCVP Delegates</p>
+                <p>
+                  <a href="tel:+94710368820"
+                    ><i class="fas fa-phone"></i> +94 71 036 8820</a
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
         <!-- Original Footer Content -->
         <div class="footer-content">
-          <div class="footer-logo"><img src="Logos/AIESEC/White-Logo.png" alt="AIESEC Logo White" /><p>AIESEC in University of Sri Jayewardenepura</p></div>
+          <div class="footer-logo">
+            <img src="Logos/AIESEC/White-Logo.png" alt="AIESEC Logo White" />
+            <p>AIESEC in University of Sri Jayewardenepura</p>
+          </div>
           <div class="social-links">
-            <a href="https://www.facebook.com/AIESECSriJayewardenepura" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/aiesecinusjp/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.linkedin.com/company/aiesecinusjp/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a
+              href="https://www.facebook.com/AIESECSriJayewardenepura"
+              class="social-link"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="AIESEC USJ Facebook"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              href="https://www.instagram.com/aiesecinusjp/"
+              class="social-link"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="AIESEC USJ Instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/company/aiesecinusjp/"
+              class="social-link"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="AIESEC USJ LinkedIn"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
           </div>
         </div>
         <div class="copyright">
-          <p>© 2025 AIESEC in University of Sri Jayewardenepura. All rights reserved.<br />Website developed with <i class="fas fa-heart" style="color: var(--primary-color)"></i></p>
+          <p>
+            © <span id="current-year">2024</span> AIESEC in University of Sri
+            Jayewardenepura. All rights reserved.<br />
+            Website developed with
+            <i class="fas fa-heart" style="color: var(--primary-color)"></i> by
+            the Avurudu LCM '25 Team.
+          </p>
         </div>
       </div>
     </footer>
 
-    <!-- Lightbox Structure -->
+    <!-- Lightbox Structure (Keep if planning photo gallery later) -->
+    <!--
     <div id="lightbox" class="lightbox">
       <span class="lightbox-close" aria-label="Close lightbox">×</span>
       <img class="lightbox-content" id="lightbox-img" alt="Enlarged gallery image"/>
       <a class="lightbox-prev" aria-label="Previous image">❮</a>
       <a class="lightbox-next" aria-label="Next image">❯</a>
     </div>
+    -->
 
     <script src="script.js"></script>
   </body>
