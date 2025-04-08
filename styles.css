@@ -157,7 +157,7 @@ header .container {
   align-items: center;
 }
 .logo img {
-  height: 40px; /* Slightly smaller */
+  height: 30px; /* Reduced from 40px to make logo smaller */
   margin-right: 0.8rem;
 }
 .logo h1 {
@@ -233,7 +233,7 @@ nav ul li a.active {
 .hero-logo {
   max-width: 200px; /* Slightly smaller */
   margin: 0 auto 1.5rem auto;
-  filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.7)); /* Enhanced glow */
+  /*filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.7)); Enhanced glow */
 }
 .hero-content h1 {
   font-size: clamp(2.8rem, 6vw, 4.2rem); /* Responsive font size */
@@ -1411,7 +1411,7 @@ footer {
     padding: 0.6rem 0;
   }
   .logo img {
-    height: 35px;
+    height: 28px; /* Reduced from 35px for mobile view */
   }
   .logo h1 {
     font-size: 1.2rem;
@@ -1593,7 +1593,7 @@ footer {
     grid-template-columns: 1fr;
   }
   .footer-logo img {
-    height: 35px;
+    height: 30px; /* Slightly reduced for smallest screens */
   }
   .footer-logo p {
     font-size: 0.95rem;
